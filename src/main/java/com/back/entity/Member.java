@@ -13,9 +13,16 @@ public class Member extends BaseIdAndTime {
     private String password;
     private String nickname;
 
+    @Column(nullable = false)
+    private int activityScore = 0;
+
     public Member(String username, String password, String nickname) {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
+    }
+
+    public int increaseActivityScore(int amount) {
+        return this.activityScore += amount;
     }
 }
