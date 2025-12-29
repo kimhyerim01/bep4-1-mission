@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: back
+  config:
+    import: optional:file:.env[.properties]
   profiles:
     active: dev
   output:
