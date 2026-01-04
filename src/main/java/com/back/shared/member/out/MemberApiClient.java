@@ -15,9 +15,13 @@ public class MemberApiClient {
     }
 
     public String getRandomSecureTip() {
-        return restClient.get()
-                .uri("/members/randomSecureTip")
-                .retrieve()
-                .body(String.class);
+        try {
+            return restClient.get()
+                    .uri("/members/randomSecureTip")
+                    .retrieve()
+                    .body(String.class);
+        } catch (Exception e) {
+            return "기본 보안 팁";
+        }
     }
 }
